@@ -53,7 +53,7 @@ class TransactionSequencePrivate;
  *
  * @author Volker Krause <vkrause@kde.org>
  */
-class AKONADICORE_EXPORT TransactionSequence : public Job
+class AKONADICORE_DEPRECATED_EXPORT TransactionSequence : public Job
 {
     Q_OBJECT
 public:

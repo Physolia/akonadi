@@ -14,7 +14,7 @@ namespace Akonadi
 {
 
 class TransactionJobPrivate;
-class AKONADICORE_EXPORT TransactionJob : public Job
+class AKONADICORE_DEPRECATED_EXPORT TransactionJob : public Job
 {
     Q_OBJECT
 
@@ -46,7 +46,7 @@ class TransactionJobPrivate;
  *
  * @author Volker Krause <vkrause@kde.org>
  */
-class AKONADICORE_EXPORT TransactionBeginJob : public TransactionJob
+class AKONADICORE_DEPRECATED_EXPORT TransactionBeginJob : public TransactionJob
 {
     Q_OBJECT
 
@@ -75,7 +75,7 @@ public:
  *
  * @author Volker Krause <vkrause@kde.org>
  */
-class AKONADICORE_EXPORT TransactionRollbackJob : public TransactionJob
+class AKONADICORE_DEPRECATED_EXPORT TransactionRollbackJob : public TransactionJob
 {
     Q_OBJECT
 
@@ -101,7 +101,7 @@ public:
  *
  * @author Volker Krause <vkrause@kde.org>
  */
-class AKONADICORE_EXPORT TransactionCommitJob : public TransactionJob
+class AKONADICORE_DEPRECATED_EXPORT TransactionCommitJob : public TransactionJob
 {
     Q_OBJECT
 
