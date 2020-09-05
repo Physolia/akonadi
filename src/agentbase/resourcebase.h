@@ -253,6 +253,7 @@ Q_SIGNALS:
      *
      * @since 4.14
      */
+    QT_DEPRECATED_X("This signal is deprecated and currently only emitted once for compatibility.")
     void retrieveNextItemSyncBatch(int remainingBatchSize);
 
 protected Q_SLOTS:
@@ -310,6 +311,7 @@ protected Q_SLOTS:
      * @see retrieveNextItemSyncBatch(int), retrieveItems(Akonadi::Collection)
      * @since 4.14
      */
+    QT_DEPRECATED_X("ItemSync batches are deprecated, don't use them.")
     int itemSyncBatchSize() const;
 
     /**
@@ -319,6 +321,7 @@ protected Q_SLOTS:
      * @see retrieveNextItemSyncBatch(int)
      * @since 4.14
      */
+    QT_DEPRECATED_X("ItemSync batches are deprecated, don't use them.")
     void setItemSyncBatchSize(int batchSize);
 
     /**
@@ -568,6 +571,7 @@ protected:
      * @see Akonadi::ItemSync::TransactionMode
      * @since 4.6
      */
+    QT_DEPRECATED_X("Changing ItemSync transaction mode is deprecated and calling this method has no effect.")
     void setItemTransactionMode(ItemSync::TransactionMode mode);
 
     /**
@@ -595,6 +599,7 @@ protected:
      * @see Akonadi::ItemSync
      * @since 4.6
      */
+    QT_DEPRECATED_X("Changing ItemSync fetch scope is deprecated and calling this method has no effect.")
     void setItemSynchronizationFetchScope(const ItemFetchScope &fetchScope);
 
     /**

@@ -125,6 +125,7 @@ public:
      *
      * @see fetchScope()
      */
+    QT_DEPRECATED_X("Calling this method has no effect anymore.")
     void setFetchScope(ItemFetchScope &fetchScope);
 
     /**
@@ -139,6 +140,7 @@ public:
      *
      * @see setFetchScope() for replacing the current item fetch scope
      */
+    QT_DEPRECATED_X("Calling this method has no effect anymore.")
     ItemFetchScope &fetchScope();
 
     /**
@@ -154,9 +156,9 @@ public:
      * @since 4.6
      */
     enum TransactionMode {
-        SingleTransaction, ///< Use a single transaction for the entire sync process (default), provides maximum consistency ("all or nothing") and best performance
-        MultipleTransactions, ///< Use one transaction per chunk of delivered items, good compromise between the other two when using streaming
-        NoTransaction ///< Use no transaction at all, provides highest responsiveness (might therefore feel faster even when actually taking slightly longer), no consistency guaranteed (can fail anywhere in the sync process)
+        SingleTransaction Q_DECL_ENUMERATOR_DEPRECATED_X("The enumerator has no meaning anymore."), ///< Use a single transaction for the entire sync process (default), provides maximum consistency ("all or nothing") and best performance
+        MultipleTransactions Q_DECL_ENUMERATOR_DEPRECATED_X("The enumerator has no meaning anymore."), ///< Use one transaction per chunk of delivered items, good compromise between the other two when using streaming
+        NoTransaction Q_DECL_ENUMERATOR_DEPRECATED_X("The enumerator has no meaning anymore.") ///< Use no transaction at all, provides highest responsiveness (might therefore feel faster even when actually taking slightly longer), no consistency guaranteed (can fail anywhere in the sync process)
     };
 
     /**
@@ -165,6 +167,7 @@ public:
      * @param mode the transaction mode to use
      * @since 4.6
      */
+    QT_DEPRECATED_X("Calling this method has no effect anymore.")
     void setTransactionMode(TransactionMode mode);
 
     /**
@@ -174,6 +177,7 @@ public:
      * @see setBatchSize()
      * @since 4.14
      */
+    QT_DEPRECATED_X("Calling this method has no effect anymore.")
     Q_REQUIRED_RESULT int batchSize() const;
 
     /**
@@ -185,6 +189,7 @@ public:
      * @see batchSize()
      * @since 4.14
      */
+    QT_DEPRECATED_X("Calling this method has no effect anymore.")
     void setBatchSize(int);
 
     /**
@@ -229,6 +234,7 @@ Q_SIGNALS:
      *
      * @since 4.14
      */
+    QT_DEPRECATED_X("This signal is no longer used. It's only emitted once for backwards compatiblity.")
     void readyForNextBatch(int remainingBatchSize);
 
     /**
@@ -237,6 +243,7 @@ Q_SIGNALS:
      *
      * @since 4.14
      */
+    QT_DEPRECATED_X("This signal is no longer emitted.")
     void transactionCommitted();
 
 protected:
@@ -246,13 +253,9 @@ protected:
 private:
     //@cond PRIVATE
     Q_DECLARE_PRIVATE(ItemSync)
-
-    Q_PRIVATE_SLOT(d_func(), void slotLocalListDone(KJob *))
-    Q_PRIVATE_SLOT(d_func(), void slotTransactionResult(KJob *))
-    Q_PRIVATE_SLOT(d_func(), void slotItemsReceived(const Akonadi::Item::List &))
     //@endcond
 };
 
-}
+} // namespace Akonadi
 
 #endif
