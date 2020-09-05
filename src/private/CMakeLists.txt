@@ -32,14 +32,9 @@ set(akonadiprivate_LIBS
 PUBLIC
     Qt5::Core
     Qt5::DBus
+PRIVATE
+    Qt5::Network
 )
-if (WIN32)
-    set(akonadiprivate_LIBS
-    ${akonadiprivate_LIBS}
-    PRIVATE
-        Qt5::Network
-    )
-endif()
 
 ecm_qt_declare_logging_category(akonadiprivate_SRCS HEADER akonadiprivate_debug.h IDENTIFIER AKONADIPRIVATE_LOG CATEGORY_NAME org.kde.pim.akonadiprivate
         DESCRIPTION "akonadi (Akonadi Private Library)"
@@ -50,7 +45,8 @@ ecm_qt_declare_logging_category(akonadiprivate_SRCS HEADER akonadiprivate_debug.
 macro(update_include_directories _target)
     target_include_directories(${_target} PUBLIC "$<BUILD_INTERFACE:${Akonadi_SOURCE_DIR}/src/private;${Akonadi_BINARY_DIR}/src/private;${Akonadi_BINARY_DIR}/src>")
     target_include_directories(${_target} PRIVATE "${Akonadi_SOURCE_DIR}/src/shared")
-    target_include_directories(${_target} PUBLIC "$<BUILD_INTERFACE:${Qt5Core_INCLUDE_DIRS};${Qt5DBus_INCLUDE_DIRS}>")
+    target_include_directories(${_target} PUBLIC
+        "$<BUILD_INTERFACE:${Qt5Core_INCLUDE_DIRS};${Qt5DBus_INCLUDE_DIRS};${Qt5Network_INCLUDE_DIRS}>")
 endmacro()
 
 if (WIN32)
