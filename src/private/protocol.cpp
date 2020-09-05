@@ -110,9 +110,13 @@ QDebug operator<<(QDebug _dbg, Command::Type type)
 
     case Command::SelectResource:
         return dbg << "SelectResource";
-
     case Command::StreamPayload:
         return dbg << "StreamPayload";
+    case Command::BeginItemSync:
+        return dbg << "BeginItemSync";
+    case Command::EndItemSync:
+        return dbg << "EndItemSync";
+
     case Command::ItemChangeNotification:
         return dbg << "ItemChangeNotification";
     case Command::CollectionChangeNotification:
@@ -215,6 +219,9 @@ void Command::toJson(QJsonObject &json) const
         case_label(SelectResource)
 
         case_label(StreamPayload)
+        case_label(BeginItemSync)
+        case_label(EndItemSync)
+
         case_label(CreateSubscription)
         case_label(ModifySubscription)
 
@@ -304,6 +311,9 @@ case Command::x | Command::_ResponseBit: { \
         case_commandlabel(SelectResource, SelectResourceCommand, SelectResourceResponse)
 
         case_commandlabel(StreamPayload, StreamPayloadCommand, StreamPayloadResponse)
+        case_commandlabel(BeginItemSync, BeginItemSyncCommand, BeginItemSyncResponse)
+        case_commandlabel(EndItemSync, EndItemSyncCommand, EndItemSyncResponse)
+
         case_commandlabel(CreateSubscription, CreateSubscriptionCommand, CreateSubscriptionResponse)
         case_commandlabel(ModifySubscription, ModifySubscriptionCommand, ModifySubscriptionResponse)
 
@@ -431,6 +441,9 @@ public:
 
         // Other...?
         registerType<Command::StreamPayload, StreamPayloadCommand, StreamPayloadResponse>();
+        registerType<Command::BeginItemSync, BeginItemSyncCommand, BeginItemSyncResponse>();
+        registerType<Command::EndItemSync, EndItemSyncCommand, EndItemSyncResponse>();
+
         registerType<Command::ItemChangeNotification, ItemChangeNotification, Response /* invalid */>();
         registerType<Command::CollectionChangeNotification, CollectionChangeNotification, Response /* invalid */>();
         registerType<Command::TagChangeNotification, TagChangeNotification, Response /* invalid */>();
