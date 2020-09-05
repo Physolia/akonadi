@@ -64,6 +64,7 @@ set(libakonadiserver_SRCS
     handler/itemlinkhandler.cpp
     handler/itemmodifyhandler.cpp
     handler/itemmovehandler.cpp
+    handler/itemsynchandler.cpp
     handler/loginhandler.cpp
     handler/logouthandler.cpp
     handler/relationfetchhandler.cpp
